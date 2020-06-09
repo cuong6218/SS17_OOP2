@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Rat{
+            constructor(name, weight, speed, status){
+                this.name = name;
+                this.weight = weight;
+                this.speed = speed;
+                this.status = status;
+            }
+            call(somthing){
+                console.log(`${this.name} say ${somthing}`);
+            }
+            // setName(name){
+            //     this.name = name;
+            // }
+            // setWeight(weight){
+            //     this.weight = weight;
+            // }
+            // setSpeed(speed){
+            //     this.speed = speed;
+            // }
+            checkStatus(){
+                if (this.status == 'live'){
+                    return true;
+                } else return false;
+            }
+        }
+        class Cat{
+            constructor(name, weight, maxSpeed){
+                this.name = name;
+                this.weight = weight;
+                this.maxSpeed = maxSpeed;
+            }
+            call(somthing){
+                console.log(`${this.name} say ${somthing}`);
+            }
+            // setName(name){
+            //     this.name = name;
+            // }
+            // setWeight(weight){
+            //     this.weight = weight;
+            // }
+            // setMaxSpeed(maxSpeed){
+            //     this.maxSpeed = maxSpeed;
+            // }
+            catch(Rat){
+                if (this.maxSpeed > Rat.speed){
+                    this.maxSpeed = 0;
+                    return true;
+                } else return false;
+            }
+            eat(Rat){
+                if (Rat.status == 'live'){
+                    this.weight += Rat.weight;
+                    Rat.status = 'die';
+                }
+            }
+            checkWeight(){
+                return this.weight;
+            }
+        }
+
+        let rat1 = new Rat('Jerry', 10, 5, 'live');
+        let rat2 = new Rat('Louis', 20, 10, 'live');
+        let cat = new Cat('Tom', 40, 15);
+        console.log(cat.catch(rat1));
+        console.log(cat.catch(rat2));
+    
+        cat.eat(rat1);
+        console.log(cat.checkWeight());
+        console.log(rat1);
+        console.log(rat2);
+        console.log(cat);
+
+    </script>
+</body>
+</html>

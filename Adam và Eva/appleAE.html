@@ -17,9 +17,7 @@
                 this.weight--;
             }
             isEmpty() {
-                if (this.weight <= 0) {
-                    return false;
-                } else return true;
+                return this.weight > 0;
             }
             getWeight() {
                 return this.weight;
