@@ -8,21 +8,30 @@
 <body>
     <script>
         class Remote{
-            constructor(){
+            constructor(code){
                 this.code = code;
             }
-            moveChannel(){
-
+            moveChannelUp(Tivi){
+                Tivi.channel++;
             }
-            volumeUp(){
-
+            moveChannelDown(Tivi){
+                Tivi.channel--;
             }
-            volumeDown(){
-
+            volumeUp(Tivi){
+                Tivi.volume++;
+            }
+            volumeDown(Tivi){
+                Tivi.volume--;
+            }
+            turnOn(Tivi){
+                Tivi.status = true;
+            }
+            turnOff(Tivi){
+                Tivi.status = false;
             }
         }
         class Tivi{
-            constructor(channel, volume, status){
+            constructor(channel, volume){
                 this.channel = channel;
                 this.volume = volume;
                 this.status = false;
@@ -34,21 +43,52 @@
                 this.status = false;
             }
             volumeUp(){
-                this.volume++;
+                if(this.status) this.volume++;
             }
             volumeDown(){
-                this.volume--;
+                if (this.status) this.volume--;
             }
             displayVolume(){
-                return this.volume;
+                if (this.status)
+                console.log(`Âm lượng hiện tại là ${this.volume}`);
             }
             displayChannel(){
-                return this.channel;
+                if (this.status)
+                console.log(`Kênh hiện tại là ${this.channel}`);
             }
             changeChannel(channel){
+                if (this.status)
                 this.channel = channel;
             }
+            checkStatus(){
+                return this.status;
+            }
         }
+
+        let remote1 = new Remote('HRM001');
+        let tivi1 = new Tivi(2,1);
+        tivi1.turnOn();
+        console.log(tivi1.checkStatus());
+        tivi1.changeChannel(7);
+        tivi1.displayChannel();
+
+        remote1.moveChannelDown(tivi1);
+        tivi1.displayChannel();
+
+        remote1.moveChannelDown(tivi1);
+        tivi1.displayChannel();
+
+        remote1.moveChannelDown(tivi1);
+        tivi1.displayChannel();
+
+        remote1.moveChannelDown(tivi1);
+        tivi1.displayChannel();
+
+        tivi1.displayVolume();
+        remote1.volumeUp(tivi1);
+        tivi1.displayVolume();
+        remote1.turnOff(tivi1);
+        console.log(tivi1.checkStatus());
     </script>
 </body>
 </html>

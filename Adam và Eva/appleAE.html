@@ -43,7 +43,7 @@
                 return Apple.isEmpty();
             }
             eat(Apple) {
-                if (Apple.isEmpty()) {
+                if (this.checkApple(Apple)) {
                     this.weight++;
                     Apple.decreaseApple();
                 }
@@ -75,6 +75,8 @@
         person1.setWeight(60);
         person2.setWeight(50);
 
+        person1.eat(quatao);
+        person1.eat(quatao);
         person1.eat(quatao);
         person2.eat(quatao);
 
