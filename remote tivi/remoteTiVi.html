@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Remote{
+            constructor(){
+                this.code = code;
+            }
+            moveChannel(){
+
+            }
+            volumeUp(){
+
+            }
+            volumeDown(){
+
+            }
+        }
+        class Tivi{
+            constructor(channel, volume, status){
+                this.channel = channel;
+                this.volume = volume;
+                this.status = false;
+            }
+            turnOn(){
+                this.status = true;
+            }
+            turnOff(){
+                this.status = false;
+            }
+            volumeUp(){
+                this.volume++;
+            }
+            volumeDown(){
+                this.volume--;
+            }
+            displayVolume(){
+                return this.volume;
+            }
+            displayChannel(){
+                return this.channel;
+            }
+            changeChannel(channel){
+                this.channel = channel;
+            }
+        }
+    </script>
+</body>
+</html>

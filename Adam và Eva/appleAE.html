@@ -25,10 +25,10 @@
         }
 
         class Human {
-            constructor(name, gender, weightHuman) {
+            constructor(name, gender, weight) {
                 this.name = name;
                 this.gender = gender;
-                this.weightHuman = weightHuman;
+                this.weight = weight;
             }
             isMale() {
                 if (this.gender == 'Male') {
@@ -44,7 +44,7 @@
             }
             eat(Apple) {
                 if (Apple.isEmpty()) {
-                    this.weightHuman++;
+                    this.weight++;
                     Apple.decreaseApple();
                 }
             }
@@ -57,11 +57,11 @@
             setName(name) {
                 this.name = name;
             }
-            getWeightHuman() {
-                return this.weightHuman;
+            getWeight() {
+                return this.weight;
             }
-            setWeightHuman(weightHuman) {
-                this.weightHuman = weightHuman;
+            setWeight(weight) {
+                this.weight = weight;
             }
         }
 
@@ -72,14 +72,14 @@
         person2.setName('Eva');
         person1.setGender('Male');
         person2.setGender('Female');
-        person1.setWeightHuman(60);
-        person2.setWeightHuman(50);
+        person1.setWeight(60);
+        person2.setWeight(50);
 
         person1.eat(quatao);
         person2.eat(quatao);
 
-        console.log(person1.getWeightHuman());
-        console.log(person2.getWeightHuman());
+        console.log(person1.getWeight());
+        console.log(person2.getWeight());
 
         person1.say('Hello Eva');
 

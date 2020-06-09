@@ -9,13 +9,11 @@
     <script>
         class SwitchButton{
             constructor(){
-                this.status = false;
+                this.status = status;
                 this.lamp = ElectricLamp;
             }
             connectToLamp(ElectricLamp){
-                if (this.status){
-                    ElectricLamp.turnOn();
-                } else ElectricLamp.turnOff();
+                
             }
             switchOff(){
                 this.status = false;
@@ -26,15 +24,13 @@
         }
         class ElectricLamp{
             constructor(){
-                this.status = status;
+                this.status = false;
             }
             turnOn(){
-                this.statusLamp = true;
-                console.log('Đèn đang bật');
+                this.status = true;
             }
             turnOff(){
-                this.statusLamp = false;
-                console.log('Đèn đang tắt');
+                this.status = false;
             }
         }
         let button1 = new SwitchButton();
